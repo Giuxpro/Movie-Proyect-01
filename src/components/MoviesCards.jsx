@@ -6,7 +6,7 @@ import style from "./MoviesCards.module.css"
 import { Spinner } from "./Spinner"
 import { useQuery } from "../Hooks/useQuery"
 import InfiniteScroll from "react-infinite-scroll-component"
-
+import {Empty} from "./Empty"
 
 export function MoviesCards({ search}){
 
@@ -30,6 +30,9 @@ export function MoviesCards({ search}){
             })
     }, [search, page])
 
+    if(!isLoading && movies.length === 0){
+        return <Empty/>
+    }
 
     return (
         <InfiniteScroll 

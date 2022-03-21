@@ -8,17 +8,14 @@ export function Search() {
     const query = useQuery();
     const search = query.get("search")
 
-    const [searchText, setSearchText] = useState("")
+    
     const history = useHistory();
 
-    useEffect(() => {
-        setSearchText(search)
-    }, [search]);
+    
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        history.push("/?search="+ searchText)
-        setSearchText("")
+        history.push("/?search="+ search) 
     }
     return (
         <form className={styles.searchContainer} onSubmit={handleSubmit}>
@@ -28,9 +25,13 @@ export function Search() {
                 className={styles.searchInput} 
                 type="text" 
                 placeholder="Search Movies..." 
-                value={searchText} 
-                onChange={(e)=> 
-                setSearchText(e.target.value)}
+                aria-label="Search Movies"
+                value={search ??""} 
+                autoFocus
+                onChange={(e)=>{
+                    const value = e.target.value;
+                    history.push("/?search="+ value)
+                }}
                 />
 
                 <button 
