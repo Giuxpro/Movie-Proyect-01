@@ -1,6 +1,5 @@
 import styles from "./Search.module.css"
 import {ImSearch} from "react-icons/im"
-import { useEffect, useState } from "react";
 import { useHistory} from "react-router"
 import { useQuery } from "../Hooks/useQuery";
 
