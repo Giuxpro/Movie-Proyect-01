@@ -10,6 +10,9 @@ export function App(){
      return(
          <Router>
              <header>
+                <div className={styles.autor}>
+                   Autor: Alberto Giuseppe /Full Stack Developer
+                </div>
                 <div className={styles.titleContainer}>
                 <Link to="/">
                      <h1 className={styles.appStyles}>Movies</h1>
